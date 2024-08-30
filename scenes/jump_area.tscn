@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjq48grl61rso"]
+
+[ext_resource type="Script" path="res://scripts/jump_area.gd" id="1_efvej"]
+
+[node name="JumpArea" type="Area2D"]
+monitorable = false
+script = ExtResource("1_efvej")

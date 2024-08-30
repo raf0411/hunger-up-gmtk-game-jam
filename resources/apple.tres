@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FoodResource" load_steps=4 format=3 uid="uid://vfmoa4y3viwp"]
+
+[ext_resource type="Script" path="res://scripts/food_resource.gd" id="1_3b65x"]
+[ext_resource type="Texture2D" uid="uid://clawed1cnmih5" path="res://sprites/environment-ui-sheets.png" id="2_xm8x1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s81r2"]
+atlas = ExtResource("2_xm8x1")
+region = Rect2(24, 24, 8, 8)
+
+[resource]
+script = ExtResource("1_3b65x")
+texture = SubResource("AtlasTexture_s81r2")
+type = "Healthy"

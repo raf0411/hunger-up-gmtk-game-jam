@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://dce33aewejr3c"]
+
+[ext_resource type="Texture2D" uid="uid://clawed1cnmih5" path="res://sprites/environment-ui-sheets.png" id="1_cpp8r"]
+[ext_resource type="Script" path="res://scripts/powerups.gd" id="1_o732i"]
+[ext_resource type="AudioStream" uid="uid://cmtr2ttj0iw75" path="res://audio/powerup.wav" id="3_1aiur"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_it4pl"]
+radius = 2.0
+
+[sub_resource type="Animation" id="Animation_1am6p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_remxh"]
+resource_name = "idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7g3y3"]
+_data = {
+"RESET": SubResource("Animation_1am6p"),
+"idle": SubResource("Animation_remxh")
+}
+
+[node name="Powerups" type="Area2D"]
+script = ExtResource("1_o732i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cpp8r")
+region_enabled = true
+region_rect = Rect2(40, 24, 8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_it4pl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7g3y3")
+}
+
+[node name="PowerupSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1aiur")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://csda6ldlsw8qv"]
+
+[ext_resource type="PackedScene" uid="uid://x7a8qbrjgom0" path="res://scenes/level.tscn" id="1_wp522"]
+[ext_resource type="PackedScene" uid="uid://byvnsrne0am3n" path="res://scenes/gate.tscn" id="2_5mc78"]
+[ext_resource type="PackedScene" uid="uid://cuoxo626rqqxa" path="res://scenes/enemy.tscn" id="3_yya2i"]
+[ext_resource type="PackedScene" uid="uid://jkd01g7k76rv" path="res://scenes/key.tscn" id="4_pwo7n"]
+[ext_resource type="PackedScene" uid="uid://cd0otrd88bbp3" path="res://scenes/trampoline.tscn" id="5_322af"]
+[ext_resource type="PackedScene" uid="uid://dce33aewejr3c" path="res://scenes/powerups.tscn" id="6_1af55"]
+[ext_resource type="PackedScene" uid="uid://cbuh5jdr32prj" path="res://scenes/food.tscn" id="7_gta8b"]
+[ext_resource type="Resource" uid="uid://bu3ovxfp10wpa" path="res://resources/candy.tres" id="8_8pnf2"]
+
+[node name="Level-5" instance=ExtResource("1_wp522")]
+
+[node name="TileMap" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(327689, 196608, 1, 327685, 196608, 1, 327680, 196608, 1, 262144, 196608, 1, 196608, 196608, 1, 131072, 196608, 1, 0, 196608, 1, 1, 196608, 1, 2, 196608, 1, 3, 196608, 1, 4, 196608, 1, 5, 196608, 1, 6, 196608, 1, 7, 196608, 1, 8, 196608, 1, 9, 196608, 1, 131081, 196608, 1, 196617, 196608, 1, 131073, 131072, 1, 196613, 131072, 1, 131077, 131072, 1, 65541, 131072, 1, 196615, 131072, 1, 327688, 196608, 1, 65536, 196608, 1, 262153, 196608, 1)
+
+[node name="NextLevelAdvancer" parent="." index="3"]
+position = Vector2(84, 12)
+next_scene = "res://scenes/credits.tscn"
+
+[node name="Player" parent="." index="4"]
+position = Vector2(13, 12)
+
+[node name="Gate" parent="." index="5" instance=ExtResource("2_5mc78")]
+position = Vector2(76, 12)
+
+[node name="Gate2" parent="." index="6" instance=ExtResource("2_5mc78")]
+position = Vector2(44, 36)
+
+[node name="Enemy" parent="." index="7" instance=ExtResource("3_yya2i")]
+position = Vector2(12, 37)
+
+[node name="Enemy3" parent="." index="8" instance=ExtResource("3_yya2i")]
+position = Vector2(55, 37)
+
+[node name="Enemy2" parent="." index="9" instance=ExtResource("3_yya2i")]
+position = Vector2(57, 18)
+SPEED = 200.0
+
+[node name="Key2" parent="." index="10" instance=ExtResource("4_pwo7n")]
+position = Vector2(12, 28)
+
+[node name="Trampoline" parent="." index="11" instance=ExtResource("5_322af")]
+position = Vector2(68, 24)
+
+[node name="Trampoline2" parent="." index="12" instance=ExtResource("5_322af")]
+position = Vector2(12, 43)
+
+[node name="Trampoline3" parent="." index="13" instance=ExtResource("5_322af")]
+position = Vector2(20, 43)
+BOUNCE_FORCE = -150.0
+
+[node name="Trampoline4" parent="." index="14" instance=ExtResource("5_322af")]
+position = Vector2(28, 43)
+
+[node name="Trampoline5" parent="." index="15" instance=ExtResource("5_322af")]
+position = Vector2(36, 43)
+BOUNCE_FORCE = -80.0
+
+[node name="Trampoline6" parent="." index="16" instance=ExtResource("5_322af")]
+position = Vector2(52, 43)
+
+[node name="Trampoline7" parent="." index="17" instance=ExtResource("5_322af")]
+position = Vector2(60, 43)
+
+[node name="Powerups" parent="." index="18" instance=ExtResource("6_1af55")]
+position = Vector2(52, 18)
+
+[node name="Food3" parent="." index="19" instance=ExtResource("7_gta8b")]
+position = Vector2(68, 36)
+food_resource = ExtResource("8_8pnf2")
+
+[node name="Food2" parent="." index="20" instance=ExtResource("7_gta8b")]
+position = Vector2(29, 12)
+food_resource = ExtResource("8_8pnf2")

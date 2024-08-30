@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://bss7v0befoqps"]
+
+[ext_resource type="PackedScene" uid="uid://x7a8qbrjgom0" path="res://scenes/level.tscn" id="1_e8mc7"]
+[ext_resource type="PackedScene" uid="uid://cd0otrd88bbp3" path="res://scenes/trampoline.tscn" id="2_t33ja"]
+[ext_resource type="PackedScene" uid="uid://cppm4qb0xrseo" path="res://scenes/trampoline_detector.tscn" id="3_qccof"]
+[ext_resource type="PackedScene" uid="uid://cuoxo626rqqxa" path="res://scenes/enemy.tscn" id="4_1xo3w"]
+[ext_resource type="PackedScene" uid="uid://byvnsrne0am3n" path="res://scenes/gate.tscn" id="5_wfn7i"]
+[ext_resource type="PackedScene" uid="uid://jkd01g7k76rv" path="res://scenes/key.tscn" id="6_00vv7"]
+[ext_resource type="PackedScene" uid="uid://cbuh5jdr32prj" path="res://scenes/food.tscn" id="7_r6r6n"]
+[ext_resource type="Resource" uid="uid://vfmoa4y3viwp" path="res://resources/apple.tres" id="8_ybdk4"]
+[ext_resource type="Resource" uid="uid://bu3ovxfp10wpa" path="res://resources/candy.tres" id="9_t652q"]
+[ext_resource type="PackedScene" uid="uid://dce33aewejr3c" path="res://scenes/powerups.tscn" id="10_722hk"]
+
+[node name="Level-3" instance=ExtResource("1_e8mc7")]
+
+[node name="TileMap" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(327680, 65536, 1, 327681, 65536, 1, 327682, 65536, 1, 327683, 65536, 1, 327684, 65536, 1, 327686, 65536, 1, 327687, 65536, 1, 327688, 65536, 1, 327689, 65536, 1, 262144, 65536, 1, 196608, 65536, 1, 131072, 65536, 1, 65536, 65536, 1, 0, 65536, 1, 1, 65536, 1, 2, 65536, 1, 3, 65536, 1, 4, 65536, 1, 5, 65536, 1, 6, 65536, 1, 7, 65536, 1, 8, 65536, 1, 9, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, 131073, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 131076, 65536, 1, 131078, 65536, 1, 131079, 65536, 1, 131080, 65536, 1, 196611, 65536, 1)
+
+[node name="NextLevelAdvancer" parent="." index="3"]
+position = Vector2(84, 12)
+next_scene = "res://scenes/levels/level_4.tscn"
+
+[node name="Trampoline" parent="." index="4" instance=ExtResource("2_t33ja")]
+position = Vector2(44, 16)
+
+[node name="TrampolineDetector" parent="." index="5" instance=ExtResource("3_qccof")]
+position = Vector2(44, 45)
+
+[node name="Enemy" parent="." index="6" instance=ExtResource("4_1xo3w")]
+position = Vector2(44, 35)
+
+[node name="Gate" parent="." index="7" instance=ExtResource("5_wfn7i")]
+position = Vector2(28, 36)
+
+[node name="Key" parent="." index="8" instance=ExtResource("6_00vv7")]
+position = Vector2(12, 36)
+
+[node name="Food" parent="." index="9" instance=ExtResource("7_r6r6n")]
+position = Vector2(20, 36)
+food_resource = ExtResource("8_ybdk4")
+
+[node name="Food2" parent="." index="10" instance=ExtResource("7_r6r6n")]
+position = Vector2(68, 12)
+food_resource = ExtResource("9_t652q")
+
+[node name="Powerups" parent="." index="11" instance=ExtResource("10_722hk")]
+position = Vector2(36, 35)
+
+[node name="Gate2" parent="." index="12" instance=ExtResource("5_wfn7i")]
+position = Vector2(76, 12)
+
+[node name="Player" parent="." index="13"]
+position = Vector2(13, 12)

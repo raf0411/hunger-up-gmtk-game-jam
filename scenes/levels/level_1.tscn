@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://sr0dou3er1ra"]
+
+[ext_resource type="PackedScene" uid="uid://x7a8qbrjgom0" path="res://scenes/level.tscn" id="1_cj1u4"]
+[ext_resource type="PackedScene" uid="uid://byvnsrne0am3n" path="res://scenes/gate.tscn" id="2_yq4mg"]
+[ext_resource type="PackedScene" uid="uid://cd0otrd88bbp3" path="res://scenes/trampoline.tscn" id="3_g7053"]
+[ext_resource type="PackedScene" uid="uid://cppm4qb0xrseo" path="res://scenes/trampoline_detector.tscn" id="4_2n5m8"]
+[ext_resource type="PackedScene" uid="uid://cbuh5jdr32prj" path="res://scenes/food.tscn" id="5_1u3ag"]
+[ext_resource type="PackedScene" uid="uid://jkd01g7k76rv" path="res://scenes/key.tscn" id="6_ojcpg"]
+[ext_resource type="Resource" uid="uid://bu3ovxfp10wpa" path="res://resources/candy.tres" id="6_oxikr"]
+[ext_resource type="Resource" uid="uid://vfmoa4y3viwp" path="res://resources/apple.tres" id="7_grtgm"]
+
+[node name="Level-1" instance=ExtResource("1_cj1u4")]
+
+[node name="TileMap" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(327680, 131072, 0, 262144, 131072, 0, 196608, 131072, 0, 131072, 131072, 0, 65536, 131072, 0, 327689, 131072, 0, 262153, 131072, 0, 196617, 131072, 0, 131081, 131072, 0, 9, 131072, 0, 327688, 131072, 0, 327687, 131072, 0, 327686, 131072, 0, 327685, 131072, 0, 327684, 131072, 0, 327683, 131072, 0, 327682, 131072, 0, 327681, 131072, 0, 262145, 131072, 0, 262147, 131072, 0, 262148, 131072, 0, 262149, 131072, 0, 262150, 131072, 0, 262151, 131072, 0, 262152, 131072, 0, 131080, 131072, 0, 131079, 131072, 0, 131078, 131072, 0, 131077, 131072, 0, 131076, 131072, 0, 131075, 131072, 0, 131073, 131072, 0, 0, 131072, 0, 8, 131072, 0, 7, 131072, 0, 6, 131072, 0, 5, 131072, 0, 4, 131072, 0, 3, 131072, 0, 2, 131072, 0, 1, 131072, 0)
+
+[node name="NextLevelAdvancer" parent="." index="3"]
+position = Vector2(84, 12)
+next_scene = "res://scenes/levels/level_2.tscn"
+
+[node name="Gate" parent="." index="4" instance=ExtResource("2_yq4mg")]
+position = Vector2(76, 12)
+
+[node name="Trampoline" parent="." index="5" instance=ExtResource("3_g7053")]
+position = Vector2(20, 16)
+
+[node name="TrampolineDetector" parent="." index="6" instance=ExtResource("4_2n5m8")]
+position = Vector2(20, 37)
+
+[node name="Food" parent="." index="7" instance=ExtResource("5_1u3ag")]
+position = Vector2(68, 12)
+food_resource = ExtResource("6_oxikr")
+
+[node name="Food2" parent="." index="8" instance=ExtResource("5_1u3ag")]
+position = Vector2(68, 28)
+food_resource = ExtResource("7_grtgm")
+
+[node name="Key" parent="." index="9" instance=ExtResource("6_ojcpg")]
+position = Vector2(52, 28)
+
+[node name="Player" parent="." index="10"]
+position = Vector2(36, 12)

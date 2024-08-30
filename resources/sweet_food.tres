@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FoodResource" load_steps=2 format=3 uid="uid://copkeubqogi4m"]
+
+[ext_resource type="Script" path="res://scripts/food_resource.gd" id="1_15h88"]
+
+[resource]
+script = ExtResource("1_15h88")
+type = ""

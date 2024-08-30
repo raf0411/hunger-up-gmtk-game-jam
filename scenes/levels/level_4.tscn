@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://cgp8obqa0l8xg"]
+
+[ext_resource type="PackedScene" uid="uid://x7a8qbrjgom0" path="res://scenes/level.tscn" id="1_0adfi"]
+[ext_resource type="PackedScene" uid="uid://byvnsrne0am3n" path="res://scenes/gate.tscn" id="2_se2td"]
+[ext_resource type="PackedScene" uid="uid://cd0otrd88bbp3" path="res://scenes/trampoline.tscn" id="3_11d0x"]
+[ext_resource type="PackedScene" uid="uid://jkd01g7k76rv" path="res://scenes/key.tscn" id="4_y1m33"]
+[ext_resource type="PackedScene" uid="uid://cbuh5jdr32prj" path="res://scenes/food.tscn" id="5_ethr5"]
+[ext_resource type="Resource" uid="uid://vfmoa4y3viwp" path="res://resources/apple.tres" id="6_otvah"]
+[ext_resource type="Resource" uid="uid://bu3ovxfp10wpa" path="res://resources/candy.tres" id="7_i64bp"]
+[ext_resource type="PackedScene" uid="uid://dce33aewejr3c" path="res://scenes/powerups.tscn" id="8_up882"]
+[ext_resource type="PackedScene" uid="uid://cuoxo626rqqxa" path="res://scenes/enemy.tscn" id="9_c2ikc"]
+[ext_resource type="PackedScene" uid="uid://cppm4qb0xrseo" path="res://scenes/trampoline_detector.tscn" id="10_4kktr"]
+[ext_resource type="PackedScene" uid="uid://nndi3en0lhr" path="res://scenes/next_level_advancer.tscn" id="11_tbkim"]
+
+[node name="Level-4" instance=ExtResource("1_0adfi")]
+
+[node name="TileMap" parent="." index="2"]
+layer_0/tile_data = PackedInt32Array(327680, 262144, 0, 327682, 262144, 0, 327683, 262144, 0, 327684, 262144, 0, 327686, 262144, 0, 327687, 262144, 0, 327689, 262144, 0, 196614, 262144, 0, 196615, 262144, 0, 196617, 262144, 0, 196611, 262144, 0, 196610, 262144, 0, 196608, 262144, 0, 0, 262144, 0, 1, 262144, 0, 2, 262144, 0, 3, 262144, 0, 4, 262144, 0, 5, 262144, 0, 6, 262144, 0, 7, 262144, 0, 8, 262144, 0, 9, 262144, 0, 65536, 262144, 0, 131072, 262144, 0, 262144, 262144, 0, 196612, 262144, 0, 262153, 262144, 0, 65545, 262144, 0, 65539, 262144, 0, 65542, 262144, 0, 262147, 262144, 0)
+
+[node name="Player" parent="." index="4"]
+position = Vector2(19, 20)
+
+[node name="Gate" parent="." index="5" instance=ExtResource("2_se2td")]
+position = Vector2(28, 20)
+
+[node name="Gate2" parent="." index="6" instance=ExtResource("2_se2td")]
+position = Vector2(52, 20)
+
+[node name="Gate3" parent="." index="7" instance=ExtResource("2_se2td")]
+position = Vector2(76, 20)
+
+[node name="Gate4" parent="." index="8" instance=ExtResource("2_se2td")]
+position = Vector2(52, 36)
+
+[node name="Trampoline" parent="." index="9" instance=ExtResource("3_11d0x")]
+position = Vector2(12, 44)
+
+[node name="Trampoline2" parent="." index="10" instance=ExtResource("3_11d0x")]
+position = Vector2(44, 44)
+
+[node name="Trampoline3" parent="." index="11" instance=ExtResource("3_11d0x")]
+position = Vector2(68, 24)
+
+[node name="Key" parent="." index="12" instance=ExtResource("4_y1m33")]
+position = Vector2(19, 12)
+
+[node name="Key2" parent="." index="13" instance=ExtResource("4_y1m33")]
+position = Vector2(36, 36)
+
+[node name="Food" parent="." index="14" instance=ExtResource("5_ethr5")]
+position = Vector2(20, 36)
+food_resource = ExtResource("6_otvah")
+
+[node name="Food2" parent="." index="15" instance=ExtResource("5_ethr5")]
+position = Vector2(36, 20)
+food_resource = ExtResource("7_i64bp")
+
+[node name="Food3" parent="." index="16" instance=ExtResource("5_ethr5")]
+position = Vector2(60, 20)
+food_resource = ExtResource("7_i64bp")
+
+[node name="Food4" parent="." index="17" instance=ExtResource("5_ethr5")]
+position = Vector2(60, 36)
+food_resource = ExtResource("6_otvah")
+
+[node name="Powerups" parent="." index="18" instance=ExtResource("8_up882")]
+position = Vector2(67, 12)
+
+[node name="Enemy" parent="." index="19" instance=ExtResource("9_c2ikc")]
+position = Vector2(64, 20)
+
+[node name="TrampolineDetector" parent="." index="20" instance=ExtResource("10_4kktr")]
+position = Vector2(68, 45)
+
+[node name="NextLevelAdvancer2" parent="." index="21" instance=ExtResource("11_tbkim")]
+position = Vector2(84, 20)
+next_scene = "res://scenes/levels/level_5.tscn"
+
+[editable path="TrampolineDetector"]

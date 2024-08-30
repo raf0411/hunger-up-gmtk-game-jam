@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgqyfvib55k1e"]
+
+[ext_resource type="PackedScene" uid="uid://ccwylimef7nmc" path="res://scenes/hitbox_component.tscn" id="1_78yd3"]
+[ext_resource type="Texture2D" uid="uid://clawed1cnmih5" path="res://sprites/environment-ui-sheets.png" id="1_tgxyy"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_wdllb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0evgl"]
+radius = 2.0
+height = 4.0
+
+[node name="Bullet" type="Node2D" groups=["bullets"]]
+script = ExtResource("1_wdllb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.650348, 0)
+texture = ExtResource("1_tgxyy")
+region_enabled = true
+region_rect = Rect2(16, 24, 8, 8)
+
+[node name="HitboxComponent" parent="." instance=ExtResource("1_78yd3")]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape2D_0evgl")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.3, 0.2)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

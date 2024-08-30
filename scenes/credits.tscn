@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1kgq6bidjbl2"]
+
+[ext_resource type="Texture2D" uid="uid://b4cfimc8pca6h" path="res://sprites/menu-bg1.png" id="1_bb0p8"]
+[ext_resource type="Script" path="res://SCRIPTS/credits.gd" id="1_xybbx"]
+[ext_resource type="FontFile" uid="uid://bkmmwuoo8f2kx" path="res://fonts/PixelifySans-Bold.ttf" id="2_d3ju5"]
+[ext_resource type="AudioStream" uid="uid://bqifchrk8scvm" path="res://audio/close.wav" id="4_d1jcu"]
+[ext_resource type="AudioStream" uid="uid://bc7e3un2qkilr" path="res://audio/button.wav" id="5_fhq1v"]
+[ext_resource type="AudioStream" uid="uid://sgf8cqv5168w" path="res://audio/8-bit music.mp3" id="6_ek3us"]
+
+[node name="Credits" type="CanvasLayer"]
+script = ExtResource("1_xybbx")
+
+[node name="MainMenuBackground" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bb0p8")
+stretch_mode = 2
+
+[node name="CreditsContainer" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsContainer"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 11.0
+offset_right = 249.0
+offset_bottom = 135.0
+scale = Vector2(0.2, 0.2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CreditsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ThanksLabel" type="Label" parent="CreditsContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.607843, 0.780392, 0, 1)
+theme_override_fonts/font = ExtResource("2_d3ju5")
+theme_override_font_sizes/font_size = 24
+text = "THANKS FOR PLAYING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreatorLabel" type="Label" parent="CreditsContainer/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.607843, 0.780392, 0, 1)
+theme_override_fonts/font = ExtResource("2_d3ju5")
+text = "Creator:  @shrinken"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="CreditsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.607843, 0.780392, 0, 1)
+theme_override_fonts/font = ExtResource("2_d3ju5")
+theme_override_font_sizes/font_size = 16
+text = "MENU"
+
+[node name="Exit" type="Button" parent="CreditsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.607843, 0.780392, 0, 1)
+theme_override_fonts/font = ExtResource("2_d3ju5")
+theme_override_font_sizes/font_size = 16
+text = "EXIT"
+
+[node name="CloseSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_d1jcu")
+bus = &"SFX"
+
+[node name="PressSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fhq1v")
+bus = &"SFX"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ek3us")
+bus = &"Music"
+
+[connection signal="pressed" from="CreditsContainer/MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="CreditsContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

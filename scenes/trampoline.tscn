@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cd0otrd88bbp3"]
+
+[ext_resource type="Texture2D" uid="uid://clawed1cnmih5" path="res://sprites/environment-ui-sheets.png" id="1_7c6mf"]
+[ext_resource type="Script" path="res://scripts/trampoline.gd" id="1_xvd75"]
+[ext_resource type="PackedScene" uid="uid://bjq48grl61rso" path="res://scenes/jump_area.tscn" id="3_u3i3j"]
+[ext_resource type="AudioStream" uid="uid://dfeslsygbk2pb" path="res://audio/bounce.wav" id="4_mb356"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg0cd"]
+size = Vector2(8, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f06va"]
+size = Vector2(6, 1.86696)
+
+[node name="Trampoline" type="RigidBody2D"]
+script = ExtResource("1_xvd75")
+BOUNCE_FORCE = -100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+texture = ExtResource("1_7c6mf")
+region_enabled = true
+region_rect = Rect2(40, 8, 8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_gg0cd")
+
+[node name="JumpArea" parent="." instance=ExtResource("3_u3i3j")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpArea"]
+shape = SubResource("RectangleShape2D_f06va")
+debug_color = Color(0.957019, 2.40654e-06, 0.534826, 0.42)
+
+[node name="BounceSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_mb356")
+bus = &"SFX"
+
+[connection signal="body_entered" from="JumpArea" to="." method="_on_jump_area_body_entered"]

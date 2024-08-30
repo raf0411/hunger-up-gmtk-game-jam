@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://byvnsrne0am3n"]
+
+[ext_resource type="Script" path="res://scripts/gate.gd" id="1_lbctq"]
+[ext_resource type="Texture2D" uid="uid://dapdy0xcns48l" path="res://sprites/tiles-sheets.png" id="1_rc313"]
+[ext_resource type="AudioStream" uid="uid://dv6gkf7130isp" path="res://audio/doorunlocked.wav" id="3_ao3gn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdork"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scoph"]
+size = Vector2(8.72708, 8)
+
+[node name="Gate" type="StaticBody2D"]
+script = ExtResource("1_lbctq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rc313")
+region_enabled = true
+region_rect = Rect2(24, 0, 8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tdork")
+debug_color = Color(0.64021, 0.524782, 0, 0.42)
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("RectangleShape2D_scoph")
+
+[node name="UnlockedSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ao3gn")
+bus = &"SFX"
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

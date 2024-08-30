@@ -1,0 +1,102 @@
+[gd_scene load_steps=17 format=3 uid="uid://d312skhiapyao"]
+
+[ext_resource type="Texture2D" uid="uid://cfnyj3rhn2i5a" path="res://sprites/character-sheets.png" id="1_7inf1"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_8f5gu"]
+[ext_resource type="Resource" uid="uid://cif1vc4ul7xcv" path="res://resources/player_movement_stats.tres" id="2_al7q7"]
+[ext_resource type="PackedScene" uid="uid://dwscdoee4i6el" path="res://scenes/health_component.tscn" id="3_gcdlu"]
+[ext_resource type="PackedScene" uid="uid://dc7iehep7dcx4" path="res://scenes/hurtbox_component.tscn" id="4_64x7f"]
+[ext_resource type="AudioStream" uid="uid://c2c14e3xglktv" path="res://audio/shoot.wav" id="6_jwqu3"]
+[ext_resource type="AudioStream" uid="uid://duqgkdl4dbt6x" path="res://audio/hurt.wav" id="7_ojwpx"]
+[ext_resource type="AudioStream" uid="uid://dj8qdro5m78ls" path="res://audio/death.wav" id="8_iil5f"]
+[ext_resource type="AudioStream" uid="uid://cmtr2ttj0iw75" path="res://audio/powerup.wav" id="9_m2arb"]
+[ext_resource type="AudioStream" uid="uid://crpr4fpi68r4a" path="res://audio/powerdown.wav" id="10_5b0wp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65q2u"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3bb8"]
+atlas = ExtResource("1_7inf1")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isrp3"]
+atlas = ExtResource("1_7inf1")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbift"]
+atlas = ExtResource("1_7inf1")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_usjkd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3bb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isrp3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbift")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihvj1"]
+size = Vector2(4.99282, 3.44512)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_8f5gu")
+movement_stats = ExtResource("2_al7q7")
+
+[node name="BulletPosition" type="Marker2D" parent="."]
+position = Vector2(5, 0)
+gizmo_extents = 3.0
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_gcdlu")]
+max_health = 1
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "character") instance=ExtResource("4_64x7f")]
+health_component = NodePath("../HealthComponent")
+character = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("RectangleShape2D_65q2u")
+debug_color = Color(0.832265, 0.391306, 0, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_usjkd")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.13217, 2.27743)
+shape = SubResource("RectangleShape2D_ihvj1")
+debug_color = Color(0.896803, 0.000194063, 0.773974, 0.42)
+
+[node name="ShootSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_jwqu3")
+bus = &"SFX"
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ojwpx")
+bus = &"SFX"
+
+[node name="DeathSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_iil5f")
+bus = &"SFX"
+
+[node name="PowerupSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_m2arb")
+bus = &"SFX"
+
+[node name="PowerdownSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_5b0wp")
+bus = &"SFX"
+
+[connection signal="_on_died_event_handler" from="HealthComponent" to="." method="_on_health_component__on_died_event_handler"]

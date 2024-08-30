@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MovementStats" load_steps=2 format=3 uid="uid://cif1vc4ul7xcv"]
+
+[ext_resource type="Script" path="res://scripts/movement_stats.gd" id="1_gjny0"]
+
+[resource]
+script = ExtResource("1_gjny0")
+SPEED = 30.0
+ACCELERATION = 50.0
+FRICTION = 60.0
+GRAVITY = 980.0
+GRAVITY_SCALE = 0.2
