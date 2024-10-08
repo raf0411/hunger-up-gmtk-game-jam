@@ -1,7 +1,7 @@
 # HUNGER UP - GMTK GAME JAM SUBMISSION
 
 This game was submmitted for the GMTK Game Jam 2024 as my first ever experience in participating a game jam.
-This game still sucks so any helpful comments will be appreciated :)
+This game still sucks so any helpful feedback will be appreciated :)
 
 ## CREDIT:
 SONG: 8-bit Boss by E-Lot from FreeMusicArchive
