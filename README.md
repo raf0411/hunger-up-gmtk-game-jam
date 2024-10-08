@@ -20,4 +20,4 @@ LICENSE TYPE: CC BY
 * (Candy) - Scales you up! 
 * (Power-up) - Lets you shoot!
 * (Key) - Opens doors!
-* ![](https://img.itch.zone/aW1nLzE3NDcwNTg4LnBuZw==/original/0QLopW.png)
+![](https://img.itch.zone/aW1nLzE3NDcwNTg4LnBuZw==/original/0QLopW.png)
