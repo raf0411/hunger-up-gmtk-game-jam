@@ -10,10 +10,10 @@ LICENSE TYPE: CC BY
 
 ##HOW TO PLAY
 
-"A" Key - Move Left
-"D" Key - Move Right
-"Alt" Key - Shoot (If you got power up)
-"ESC" Key - Pause/Restart Level
+*"A" Key - Move Left
+*"D" Key - Move Right
+*"Alt" Key - Shoot (If you got power up)
+*"ESC" Key - Pause/Restart Level
 
 ##COLLECTIBLES
 
