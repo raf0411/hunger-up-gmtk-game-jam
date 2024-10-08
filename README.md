@@ -16,9 +16,18 @@ LICENSE TYPE: CC BY
 
 ## COLLECTIBLES
 
-* (Apple) - Scales you down!
-* (Candy) - Scales you up! 
-* (Power-up) - Lets you shoot!
-* (Key) - Opens doors!
+(Apple) - Scales you down!
+
+![](https://img.itch.zone/aW1nLzE3NDcwNTk4LnBuZw==/original/LJvZKT.png)
+
+(Candy) - Scales you up! 
+
+![](https://img.itch.zone/aW1nLzE3NDcwNTYxLnBuZw==/original/4PKJ6q.png)
+
+(Power-up) - Lets you shoot!
+
+![](https://img.itch.zone/aW1nLzE3NDcwNTc4LnBuZw==/original/Zjb61r.png)
+
+(Key) - Opens doors!
   
 ![](https://img.itch.zone/aW1nLzE3NDcwNTg4LnBuZw==/original/0QLopW.png)
