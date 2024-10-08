@@ -5,6 +5,7 @@ This game still sucks so any helpful comments will be appreciated :)
 
 ## CREDIT:
 SONG: 8-bit Boss by E-Lot from FreeMusicArchive
+
 LICENSE TYPE: CC BY
 
 ## HOW TO PLAY
