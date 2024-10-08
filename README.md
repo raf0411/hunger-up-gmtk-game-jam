@@ -7,17 +7,16 @@ This game still sucks so any helpful comments will be appreciated :)
 SONG: 8-bit Boss by E-Lot from FreeMusicArchive
 LICENSE TYPE: CC BY
 
-
 ##HOW TO PLAY
 
-*"A" Key - Move Left
-*"D" Key - Move Right
-*"Alt" Key - Shoot (If you got power up)
-*"ESC" Key - Pause/Restart Level
+* "A" Key - Move Left
+* "D" Key - Move Right
+* "Alt" Key - Shoot (If you got power up)
+* "ESC" Key - Pause/Restart Level
 
 ##COLLECTIBLES
 
-*(Apple) - Scales you down!
-*(Candy) - Scales you up! 
-*(Power-up) - Lets you shoot!
-*(Key) - Opens doors!
+* (Apple) - Scales you down!
+* (Candy) - Scales you up! 
+* (Power-up) - Lets you shoot!
+* (Key) - Opens doors!
